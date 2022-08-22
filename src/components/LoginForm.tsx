@@ -49,10 +49,10 @@ function LoginForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         {error && error.message}
 
-        {success && <p>Check your email</p>}
+        {success && <p>Cheque o seu email</p>}
         <h1>Login</h1>
 
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email:</label>
         <input
           type="email"
           placeholder="maria.silva@exemplo.com"
