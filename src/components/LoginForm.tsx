@@ -61,7 +61,7 @@ function LoginForm() {
         <button>Login</button>
       </form>
 
-      <Link href="/registrar">Register</Link>
+      <Link href="/register">Registrar</Link>
     </>
   );
 }
