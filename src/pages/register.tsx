@@ -24,12 +24,14 @@ function RegisterPage() {
         {error && error.message}
         <h1>Registrar</h1>
 
+        <label htmlFor="email">Email:</label>
         <input
           type="email"
           placeholder="maria.silva@exemplo.com"
           {...register("email")}
         />
         <br />
+        label htmlFor="name">nome:</label>
         <input type="text" placeholder="João" {...register("name")} />
         <button type="submit">Registrar</button>
       </form>
