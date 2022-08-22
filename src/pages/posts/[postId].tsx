@@ -10,7 +10,7 @@ function SinglePostPage() {
   const { data, isLoading } = trpc.useQuery(['posts.single-post', { postId }])
 
   if (isLoading) {
-    return <p>Loading posts...</p>
+    return <p>Carregando posts...</p>
   }
 
   if (!data) {

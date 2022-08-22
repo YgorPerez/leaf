@@ -11,7 +11,7 @@ function PostListingPage() {
   }
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p>Carregando...</p>;
   }
 
   return (
