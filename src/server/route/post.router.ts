@@ -1,16 +1,19 @@
-import { createPostSchema, getSinglePostSchema } from '../../schema/post.schema'
-import * as trpc from '@trpc/server'
-import { createRouter } from '../createRouter'
+import * as trpc from "@trpc/server";
+import {
+  createPostSchema,
+  getSinglePostSchema,
+} from "../../schema/post.schema";
+import { createRouter } from "../createRouter";
 
 export const postRouter = createRouter()
-  .mutation('create-post', {
+  .mutation("create-post", {
     input: createPostSchema,
     async resolve({ ctx, input }) {
       if (!ctx.user) {
         new trpc.TRPCError({
-          code: 'FORBIDDEN',
-          message: 'Can not create a post while logged out',
-        })
+          code: "FORBIDDEN",
+          message: "Não é possível criar um post sem estar logado",
+        });
       }
 
       const post = await ctx.prisma.post.create({
@@ -22,23 +25,23 @@ export const postRouter = createRouter()
             },
           },
         },
-      })
+      });
 
-      return post
+      return post;
     },
   })
-  .query('posts', {
+  .query("posts", {
     resolve({ ctx }) {
-      return ctx.prisma.post.findMany()
+      return ctx.prisma.post.findMany();
     },
   })
-  .query('single-post', {
+  .query("single-post", {
     input: getSinglePostSchema,
     resolve({ input, ctx }) {
       return ctx.prisma.post.findUnique({
         where: {
           id: input.postId,
         },
-      })
+      });
     },
-  })
+  });

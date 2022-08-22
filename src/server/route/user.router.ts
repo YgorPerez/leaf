@@ -34,14 +34,14 @@ export const userRouter = createRouter()
           if (e.code === 'P2002') {
             throw new trpc.TRPCError({
               code: 'CONFLICT',
-              message: 'User already exists',
+              message: 'Usuário já existe',
             })
           }
         }
 
         throw new trpc.TRPCError({
           code: 'INTERNAL_SERVER_ERROR',
-          message: 'Something went wrong',
+          message: 'Alguma coisa deu errado',
         })
       }
     },
@@ -60,7 +60,7 @@ export const userRouter = createRouter()
       if (!user) {
         throw new trpc.TRPCError({
           code: 'NOT_FOUND',
-          message: 'User not found',
+          message: 'Usuário não encontrado',
         })
       }
 
@@ -105,9 +105,9 @@ export const userRouter = createRouter()
 
       if (!token) {
         throw new trpc.TRPCError({
-          code: 'FORBIDDEN',
-          message: 'Invalid token',
-        })
+          code: "FORBIDDEN",
+          message: "Token invalido",
+        });
       }
 
       const jwt = signJwt({
