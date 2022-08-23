@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { smtpConfig } from "./smtp";
 
 export async function sendLoginEmail({
   email,
@@ -10,12 +11,12 @@ export async function sendLoginEmail({
   token: string;
 }) {
   const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
+    host: smtpConfig.host,
+    port: smtpConfig.port,
     secure: false,
     auth: {
-      user: process.env.SENDER_EMAIL_ADDRESS,
-      pass: process.env.SENDER_EMAIL_PASS,
+      user: smtpConfig.user,
+      pass: smtpConfig.pass,
     },
   });
 
