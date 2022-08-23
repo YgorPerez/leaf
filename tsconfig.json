@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noPropertyAccessFromIndexSignature": true
+    "noPropertyAccessFromIndexSignature": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/env.d.ts"],
   "exclude": ["node_modules"]
