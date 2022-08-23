@@ -31,7 +31,7 @@ function RegisterPage() {
           {...register("email")}
         />
         <br />
-        label htmlFor="name">nome:</label>
+        <label htmlFor="name">nome:</label>
         <input type="text" placeholder="João" {...register("name")} />
         <button type="submit">Registrar</button>
       </form>
