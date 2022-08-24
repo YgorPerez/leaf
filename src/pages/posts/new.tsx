@@ -21,7 +21,7 @@ function CreatePostPage() {
     <form onSubmit={handleSubmit(onSubmit)}>
       {error && error.message}
 
-      <h1>Create posts</h1>
+      <h1>Criar posts</h1>
 
       <label htmlFor="title">Título:</label>
       <input
