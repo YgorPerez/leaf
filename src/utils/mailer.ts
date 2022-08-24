@@ -9,7 +9,7 @@ export async function sendLoginEmail({
   url: string;
   token: string;
 }) {
-  const transporter = nodemailer.createTransport({
+  const transporter = await nodemailer.createTransport({
     service: process.env.EMAIL_SERVICE || "gmail",
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
@@ -21,14 +21,6 @@ export async function sendLoginEmail({
     tls: {
       rejectUnauthorized: false,
     },
-  });
-
-  transporter.verify(function (error, success) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Server is ready to take our messages");
-    }
   });
 
   const info = await transporter.sendMail({

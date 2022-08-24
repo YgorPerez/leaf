@@ -15,12 +15,12 @@ function VerifyToken({ hash }: { hash: string }) {
   ]);
 
   if (isLoading) {
-    return <p>Verifying...</p>;
+    return <p>Verificando...</p>;
   }
 
   router.push(data?.redirect.includes("login") ? "/" : data?.redirect || "/");
 
-  return <p>Redirecting...</p>;
+  return <p>Redirecionando...</p>;
 }
 
 function LoginForm() {
