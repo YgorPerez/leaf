@@ -10,12 +10,16 @@ export async function sendLoginEmail({
   token: string;
 }) {
   const transporter = nodemailer.createTransport({
+    service: process.env.EMAIL_SERVICE || "gmail",
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
     secure: false,
     auth: {
       user: process.env.EMAIL_ADDRESS,
       pass: process.env.EMAIL_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false,
     },
   });
 
